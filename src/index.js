@@ -22,3 +22,39 @@ export const calculator = {
   },
   multiply: (a,b) => a*b,
 };
+
+
+export const caesarshift = function encodestring(string, shiftLength) {
+  const lowerCaseA = 'a'.charCodeAt(); 
+  const lowerCaseZ = 'z'.charCodeAt();
+  const upperCaseA = 'A'.charCodeAt(); 
+  const upperCaseZ = 'Z'.charCodeAt();
+  let nextCode = 0;
+  let res = ''
+
+  for (let i = 0; i < string.length; i++) {
+    if(lowerCaseA <= string[i].charCodeAt() && string[i].charCodeAt() <= lowerCaseZ) {
+      nextCode =
+          ((string[i].charCodeAt() + shiftLength)- lowerCaseA)%26 + lowerCaseA;
+        res += String.fromCharCode(nextCode);
+
+    } else if( upperCaseA <= string[i].charCodeAt() && string[i].charCodeAt() <= upperCaseZ) {
+      nextCode =
+          ((string[i].charCodeAt() + shiftLength)- upperCaseA)%26 + upperCaseA;
+        res += String.fromCharCode(nextCode);
+    } else {
+      res += string[i];
+    }
+  }
+  return res;
+}
+
+export function analyzeArray(array) {
+  let average = array.reduce((a,b) => a+b, 0)/array.length ;
+  let min = Math.min(...array);
+  let max = Math.max(...array);
+  
+  return {average, min, max, length: array.length};
+
+}
+
