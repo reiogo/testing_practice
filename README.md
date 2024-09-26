@@ -1,8 +1,6 @@
-# node_template
+# Exercises in using Test Driven Development
 
-Node template
-
-Using 
-    -ESlint 
-    -Prettier
-    -Html Webpack
+Using:
+   - Jest
+   - NodeJS
+   - Javascript
